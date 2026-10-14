@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #202a37;
+  background: #f7f8f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-size: 14px;
+}
+
+* { box-sizing: border-box; }
+body { min-width: 360px; min-height: 100vh; margin: 0; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+.surface { @apply rounded-2xl border border-line bg-white shadow-card; }
+.field { @apply w-full rounded-xl border border-line bg-white px-3.5 py-3 text-sm text-ink outline-none transition placeholder:text-slate-400 focus:border-brand focus:ring-2 focus:ring-brand/10; }
+.btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#38594d] disabled:cursor-not-allowed disabled:opacity-60; }
+.btn-soft { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#eff4f0] px-4 py-2.5 text-sm font-semibold text-brand transition hover:bg-[#e5eee8]; }
+.btn-quiet { @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100; }
+.eyebrow { @apply text-[11px] font-bold uppercase tracking-[0.13em] text-muted; }
+.avatar { @apply grid shrink-0 place-items-center rounded-full bg-[#e8efe9] font-semibold text-brand; }
+.nav-link { @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-ink; }
+.nav-link-active { @apply bg-[#eff4f0] text-brand hover:bg-[#eff4f0] hover:text-brand; }
+.form-label { @apply mb-1.5 block text-sm font-semibold text-slate-700; }
+.scrollbar-hidden::-webkit-scrollbar { display: none; }
+
+@media (max-width: 1023px) {
+  .app-sidebar { position: fixed; z-index: 30; inset: 0 auto 0 0; transform: translateX(-100%); transition: transform .2s ease; }
+  .app-sidebar.is-open { transform: translateX(0); }
+  .mobile-backdrop { position: fixed; z-index: 20; inset: 0; background: rgb(15 23 42 / .25); }
+}
